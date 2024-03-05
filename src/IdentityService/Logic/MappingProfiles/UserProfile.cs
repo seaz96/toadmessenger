@@ -1,5 +1,5 @@
 using AutoMapper;
-using Core.Dal.Entities;
+using DataAccess.Entities;
 using Logic.Helpers;
 using Logic.Models;
 

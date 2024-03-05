@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using Core.Dal.Base;
 
-namespace Core.Dal.Entities;
+namespace DataAccess.Entities;
 
 public class UserEntity : BaseEntity<Guid>
 {

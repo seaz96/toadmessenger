@@ -1,6 +1,6 @@
 using Core.Dal.Base;
 
-namespace Core.Dal.Entities;
+namespace DataAccess.Entities;
 
 public class PhotoEntity : BaseEntity<Guid>
 {

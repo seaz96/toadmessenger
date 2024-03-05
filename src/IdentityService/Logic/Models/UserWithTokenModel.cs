@@ -1,5 +1,3 @@
-using Core.Dal.Entities;
-
 namespace Logic.Models;
 
 public record UserIdWithTokenModel

@@ -1,4 +1,4 @@
-using Core.Dal.Entities;
+using DataAccess.Entities;
 
 namespace DataAccess.Repositories.Interfaces;
 

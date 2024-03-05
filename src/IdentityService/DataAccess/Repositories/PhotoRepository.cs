@@ -1,4 +1,4 @@
-using Core.Dal.Entities;
+using DataAccess.Entities;
 using DataAccess.Persistence;
 using DataAccess.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;

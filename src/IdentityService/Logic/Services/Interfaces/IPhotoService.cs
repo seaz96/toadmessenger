@@ -1,4 +1,4 @@
-using Core.Dal.Entities;
+using DataAccess.Entities;
 using Logic.Models;
 
 namespace Logic.Services.Interfaces;

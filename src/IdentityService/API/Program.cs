@@ -1,6 +1,7 @@
 using API.Helpers;
 using DataAccess;
 using DataAccess.Persistence;
+using Logic;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);

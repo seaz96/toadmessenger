@@ -3,7 +3,7 @@ using Logic.Services.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 
-namespace DataAccess;
+namespace Logic;
 
 public static class LogicStartUp
 {
