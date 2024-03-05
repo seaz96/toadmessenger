@@ -1,5 +1,5 @@
 using System.Security.Claims;
-using Core.Dal.Entities;
+using DataAccess.Entities;
 using DataAccess.Repositories.Interfaces;
 using Microsoft.AspNetCore.Http;
 
