@@ -1,4 +1,5 @@
 using Domain;
+using Domain.Interfaces;
 using Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 
@@ -6,31 +7,31 @@ namespace Infrastructure.Repositories;
 
 public abstract class GenericRepository<TEntity>(DataContext context) : IGenericRepository<TEntity> where TEntity : class
 {
-    private readonly DataContext _context = context;
+    protected readonly DataContext Context = context;
     
     public virtual async Task AddAsync(TEntity entity)
     {
-        await _context.Set<TEntity>().AddAsync(entity);
+        await Context.Set<TEntity>().AddAsync(entity);
 
-        await _context.SaveChangesAsync();
+        await Context.SaveChangesAsync();
     }
 
     public virtual async Task<ICollection<TEntity>> GetAllAsync(int limit, int offset)
     {
-        return await _context.Set<TEntity>().Skip(offset).Take(limit).ToListAsync();
+        return await Context.Set<TEntity>().Skip(offset).Take(limit).ToListAsync();
     }
 
     public virtual async Task DeleteAsync(TEntity entity)
     {
-        _context.Set<TEntity>().Remove(entity);
+        Context.Set<TEntity>().Remove(entity);
 
-        await _context.SaveChangesAsync();
+        await Context.SaveChangesAsync();
     }
 
     public virtual async Task Update(TEntity entity)
     {
-        _context.Set<TEntity>().Update(entity);
+        Context.Set<TEntity>().Update(entity);
 
-        await _context.SaveChangesAsync();
+        await Context.SaveChangesAsync();
     }
 }

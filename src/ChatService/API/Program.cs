@@ -1,6 +1,6 @@
-using API.Helpers;
-using DataAccess;
-using DataAccess.Persistence;
+using Application;
+using Infrastructure;
+using Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -17,11 +17,8 @@ builder.Services.AddDbContext<DataContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
 
-builder.Services.TryAddDataAccessServices();
-builder.Services.TryAddLogicServices();
-builder.Services.TryAddMapper();
-
-builder.Services.AddJwt(builder.Configuration);
+builder.Services.TryAddInfrastructureServices();
+builder.Services.TryAddApplicationServices();
 
 var app = builder.Build();
 

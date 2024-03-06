@@ -1,6 +1,4 @@
-using Core.Dal.Base;
-
-namespace Domain;
+namespace Domain.Interfaces;
 
 public interface IGenericRepository<TEntity> where TEntity : class
 {
