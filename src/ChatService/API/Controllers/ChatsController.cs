@@ -21,7 +21,7 @@ public class ChatsController(IChatsService chatsService) : ControllerBase
     [HttpGet("{chatId}/info")]
     public async Task<IActionResult> GetChatInfoAsync([FromRoute] Guid chatId)
     {
-        var result = await _chatsService.GetChatInfoByIdAsync(chatId);
+        var result = await _chatsService.GetChatInfoByIdWithUsersInfoAsync(chatId);
 
         return new OkObjectResult(result);
     }

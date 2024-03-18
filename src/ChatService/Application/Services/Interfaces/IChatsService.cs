@@ -9,6 +9,8 @@ public interface IChatsService
 
     public Task<ChatEntity?> GetChatInfoByIdAsync(Guid chatId);
 
+    public Task<ChatInfoModelWithUsersInfo?> GetChatInfoByIdWithUsersInfoAsync(Guid chatId);
+
     public Task<ICollection<MessageDtoModel>?> GetChatMessagesByChatIdAsync(
         Guid chatId);
 }
