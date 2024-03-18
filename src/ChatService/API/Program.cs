@@ -1,9 +1,18 @@
 using Application;
+using Core.HttpLogic;
+using Core.Logs;
+using Serilog;
+using Core.TraceIdLogic;
 using Infrastructure;
 using Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Host.UseSerilog((hostingContext, loggerConfig) =>
+{
+    loggerConfig.GetConfiguration();
+});
 
 builder.Services.AddControllers();
 builder.Services.AddAuthentication();
@@ -19,6 +28,8 @@ builder.Services.AddDbContext<DataContext>(options =>
 
 builder.Services.TryAddInfrastructureServices();
 builder.Services.TryAddApplicationServices();
+builder.Services.AddHttpRequestService();
+builder.Services.TryAddTraceId();
 
 var app = builder.Build();
 
@@ -32,5 +43,7 @@ app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
+app.UseMiddleware<ReadTraceIdMiddleware>();
+app.UseMiddleware<WriteTraceIdMiddleware>();
 
 app.Run();
